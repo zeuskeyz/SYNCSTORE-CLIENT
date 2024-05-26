@@ -1,17 +1,21 @@
-import { Button, MenuItem, TextField } from '@mui/material'
-import { useState } from 'react'
+import Axios from 'axios'
+import { useContext, useState } from 'react'
 import { Form } from 'react-bootstrap'
+import { Button, MenuItem, TextField } from '@mui/material'
+import { UserContext } from '../contexts/UserContextProvider'
+
 
 export const SignUpForm = () => {
    
     const defaults = {username:"", email:"",shop:"",type:"", password:"",repeat:"" }
     const [data, setData] = useState(defaults)
+    const user = useContext(UserContext)
 
     const handleInput = event => setData(prev => {return {...prev, [event.target.name]: event.target.value }})
 
     const handleSubmit = event => {
         event.preventDefault()
-        console.log(data)
+        console.log(data, user)
         setData(defaults)
      }
 

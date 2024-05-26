@@ -3,6 +3,8 @@
 import './App.css'
 import { SignIn } from './pages/SignIn'
 
+export const URL = 'http://localhost:3003/syncstore'
+
 function App() {
   return (
     <>

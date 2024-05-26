@@ -1,6 +1,8 @@
-import { Button, Chip, Divider, TextField } from "@mui/material"
-import { useState } from "react"
+import { Button, Chip, Divider, TextField, Typography } from "@mui/material"
 import { Form } from "react-bootstrap"
+import { useState } from "react"
+import Axios from "axios"
+import { URL } from "../App"
 
 export const SignInForm = () => {
 
@@ -10,18 +12,16 @@ export const SignInForm = () => {
     const handleInput = event => setPojo(prev => {return {...prev, [event.target.name]: event.target.value }})
 
     const handleSubmit = event => {
-
         event.preventDefault()
-        console.log(pojo)
-        setPojo(defaults)
+        Axios.post(`${URL}/user-login`, pojo).then(console.log(pojo)).then(setPojo(defaults))
      }
 
     return (
         <>
 
             <Form className="container" onSubmit={handleSubmit} >
-                <div className='my-3'>
-                    <legend>USER SIGN IN</legend>
+                <div className='my-3 mx-5 px-5'>
+                    <Chip label={<Typography variant="body1">LOGIN TO SYNCTASK</Typography>} size='medium' color="warning" />
                 </div>
 
                 <div className="my-3 mx-5 px-5">

@@ -1,8 +1,11 @@
+import { SignInForm } from "../components/SignInForm"
 
 export const SignIn = () => {
   return (
     <>
-        This is the SignIn Page
+      <div className="text-center m-5 p-5">
+        <SignInForm />
+      </div>
     </>
   )
 }

@@ -3,6 +3,7 @@ import { Form } from "react-bootstrap"
 import { useState } from "react"
 import Axios from "axios"
 import { URL } from "../App"
+import toast from "react-hot-toast"
 
 export const SignInForm = () => {
 
@@ -13,7 +14,9 @@ export const SignInForm = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        Axios.post(`${URL}/user-login`, pojo).then(console.log(pojo)).then(setPojo(defaults))
+        Axios.post(`${URL}/user-login`, pojo)
+        .then(({data}) => toast.success(data.note))
+        .catch(err => toast.error(err.message))
      }
 
     return (

@@ -1,18 +1,30 @@
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import Axios from 'axios'
 import { Alerter } from './components/Alerter'
-import { Display } from './components/Display'
 import { SignIn } from './pages/SignIn'
+import { Homepage } from './pages/Homepage'
+import { SignUp } from './pages/SignUp'
+import { OpenTasks } from './pages/OpenTasks'
 
-export const URL = 'http://localhost:3003/syncstore'
+export const URL = 'http://localhost:3003'
+Axios.defaults.withCredentials = true
+Axios.defaults.baseURL = 'http://localhost:3003'
 
 function App() {
   return (
     <>
-    <Display/>
-      <Alerter/>
-      
+      <Routes>
+
+        <Route path='/homepage' element={<Homepage/>} />
+        <Route path='/new-user' element = {<SignUp/>} />
+        <Route path='/' element={<SignIn/>} />
+        <Route path='/open-tasks' element = {<OpenTasks/>} />
+
+      </Routes>
+      <Alerter />
     </>
   )
 }

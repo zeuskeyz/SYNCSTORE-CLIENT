@@ -4,21 +4,26 @@ import { useState } from "react"
 import Axios from "axios"
 import { URL } from "../App"
 import toast from "react-hot-toast"
+import { useNavigate } from "react-router-dom"
 
 export const SignInForm = () => {
 
     const defaults = { username: "", password: "" }
     const [pojo, setPojo] = useState(defaults)
+    const navigate = useNavigate()
 
     const handleInput = event => setPojo(prev => {return {...prev, [event.target.name]: event.target.value }})
 
     const handleSubmit = event => {
         event.preventDefault()
-        Axios.post(`${URL}/user-login`, pojo)
-        .then(({data}) => toast.success(data.note))
-        .catch(err => toast.error(err.message))
-     }
-
+        Axios.post(`${URL}/`, pojo)
+        .then(({data}) => {
+            toast.success(data.note)
+            console.log(data)
+            data.valid ? navigate('/homepage') : navigate('/')
+        }).catch(err => toast.error(err.message))
+    }
+    
     return (
         <>
 

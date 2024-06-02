@@ -19,7 +19,6 @@ export const SignInForm = () => {
         Axios.post(`${URL}/`, pojo)
         .then(({data}) => {
             toast.success(data.note)
-            console.log(data)
             data.valid ? navigate('/homepage') : navigate('/')
         }).catch(err => toast.error(err.message))
     }

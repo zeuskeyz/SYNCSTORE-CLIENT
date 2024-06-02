@@ -8,6 +8,9 @@ import { SignIn } from './pages/SignIn'
 import { Homepage } from './pages/Homepage'
 import { SignUp } from './pages/SignUp'
 import { OpenTasks } from './pages/OpenTasks'
+import { Users } from './pages/Users'
+import { UserEditPage } from './pages/UserEditPage'
+import { UserDelete } from './pages/UserDelete'
 
 export const URL = 'http://localhost:3003'
 Axios.defaults.withCredentials = true
@@ -17,11 +20,17 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path='/' element={<SignIn />} />
+        <Route path='/homepage' element={<Homepage />} />
 
-        <Route path='/homepage' element={<Homepage/>} />
-        <Route path='/new-user' element = {<SignUp/>} />
-        <Route path='/' element={<SignIn/>} />
-        <Route path='/open-tasks' element = {<OpenTasks/>} />
+        <Route path='/new-user' element={<SignUp />} />
+        <Route path='/all-users' element={<Users />} />
+        <Route path='/edit-user/:id' element={<UserEditPage />} />
+        <Route path='/delete-user/:id' element={<UserDelete />} />
+
+
+        <Route path='/open-tasks' element={<OpenTasks />} />
+
 
       </Routes>
       <Alerter />

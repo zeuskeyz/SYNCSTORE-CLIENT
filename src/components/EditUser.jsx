@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Axios from 'axios'
 import { URL } from "../App"
 //import toast from 'react-hot-toast'
@@ -18,7 +18,7 @@ export const EditUser = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-         Axios.get(`${URL}/edit-user/${id}`).then(setPojo())
+         Axios.get(`/${URL}/edit-user/${id}`, {id }).then(setPojo())
     }
 
     return (
@@ -31,19 +31,19 @@ export const EditUser = () => {
 
                 <div className='row my-3'>
                     <div className="col-6">
-                        <TextField required className="form-control" type="text" name="username" label="Enter Username" variant="filled" color='warning' value={values.username} onChange={handleInput} />
+                        <TextField required className="form-control" type="text" name="username" label="Enter Username" variant="filled" color='warning' value={pojo.username} onChange={handleInput} />
                     </div>
                     <div className="col-6">
-                        <TextField required className='form-control' type="email" name="email" label="Email Address" variant="filled" color='warning' value={values.email} onChange={handleInput} />
+                        <TextField required className='form-control' type="email" name="email" label="Email Address" variant="filled" color='warning' value={pojo.email} onChange={handleInput} />
                     </div>
                 </div>
 
                 <div className='row my-3'>
                     <div className='col-6'>
-                        <TextField required className="form-control" type="text" name="shop" label="Shop Code" variant="filled" color='warning' value={values.shop} onChange={handleInput} />
+                        <TextField required className="form-control" type="text" name="shop" label="Shop Code" variant="filled" color='warning' value={pojo.shop} onChange={handleInput} />
                     </div>
                     <div className="col-6">
-                        <TextField required className="form-control text-start" select type="text" name="role" label="Select Role" variant="filled" defaultValue="" color='warning' value={values.role} onChange={handleInput}>
+                        <TextField required className="form-control text-start" select type="text" name="role" label="Select Role" variant="filled" defaultValue="" color='warning' value={pojo.role} onChange={handleInput}>
                             <MenuItem value="Admin">Admin</MenuItem>
                             <MenuItem value="User">User</MenuItem>
                         </TextField>

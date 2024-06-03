@@ -4,8 +4,8 @@ import { useContext } from "react"
 import { UserContext } from "../contexts/UserContextProvider"
 import { Link } from "react-router-dom"
 
-export const Header = ({ newUser }) => {
-    const linkers = Object.values({ newUser })
+export const Header = (props) => {
+    const linkers = Object.values(props)
     const user = useContext(UserContext)
 
     return (
@@ -29,9 +29,6 @@ export const Header = ({ newUser }) => {
                     }
                 </div>
             </div>
-
-
-
 
         </>
     )

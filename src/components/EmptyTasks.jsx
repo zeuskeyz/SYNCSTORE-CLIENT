@@ -4,7 +4,7 @@ export const EmptyTasks = () => {
     return (
         <>
             <div className="d-flex justify-content-center align-items-center">
-                <Typography> No Tasks Found...</Typography>
+                <Typography> No Items Found...</Typography>
             </div>
         </>
     )

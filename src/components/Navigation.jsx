@@ -8,10 +8,10 @@ export const Navigation = () => {
 
     const DrawerList = (
 
-        <div>
-            <Typography className="text-center my-3">SYNCSTORE</Typography>
+        <>
+           <div className="my-3 text-center"> <Typography className="" >SYNCSTORE</Typography></div>
             <Divider />
-            <List className="my-3">
+            <List className="my-3 ms-3">
 
                 {navLinks.map((nav, index) => (
                     <ListItem key={index}>
@@ -24,7 +24,7 @@ export const Navigation = () => {
                 ))}
 
             </List>
-        </div>
+        </>
     )
 
     return (

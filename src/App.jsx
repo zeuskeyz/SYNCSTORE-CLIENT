@@ -11,6 +11,7 @@ import { OpenTasks } from './pages/OpenTasks'
 import { Users } from './pages/Users'
 import { UserEditPage } from './pages/UserEditPage'
 import { UserDelete } from './pages/UserDelete'
+import { Squads } from './pages/Squads'
 
 export const URL = 'http://localhost:3003'
 Axios.defaults.withCredentials = true
@@ -27,6 +28,10 @@ function App() {
         <Route path='/all-users' element={<Users />} />
         <Route path='/edit-user/:id' element={<UserEditPage />} />
         <Route path='/delete-user/:id' element={<UserDelete />} />
+
+        <Route path='/all-squads/' element={<Squads />} />
+
+
 
 
         <Route path='/open-tasks' element={<OpenTasks />} />

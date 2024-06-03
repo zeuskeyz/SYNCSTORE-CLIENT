@@ -22,7 +22,6 @@ export const SignUpForm = () => {
         event.preventDefault()
         Axios.post(`${URL}/new-user`, pojo).then(setPojo(defaults)).then(({ data }) => toast.success(data.note))
 
-
     }
 
     return (

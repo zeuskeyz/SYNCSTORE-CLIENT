@@ -19,8 +19,7 @@ export const Header = (props) => {
                 <div className="">
                     {
                         linkers?.map((linker, index) =>
-                            <Link key={index} to={linker.link}>
-
+                            <Link key={index} to={linker.link} className="ms-2">
                                 <Button color="warning" startIcon={linker.icon}>
                                     {linker.name}
                                 </Button>

@@ -26,7 +26,7 @@ function App() {
 
         <Route path='/new-user' element={<SignUp />} />
         <Route path='/all-users' element={<Users />} />
-        <Route path='/edit-user/:id' element={<UserEditPage />} />
+        <Route path='/user/:id/edit' element={<UserEditPage />} />
         <Route path='/user/:id' element={<ManageUser />} />
 
         <Route path='/all-squads/' element={<Squads />} />

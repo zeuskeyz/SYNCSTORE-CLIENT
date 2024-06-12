@@ -3,14 +3,14 @@ import Axios from 'axios'
 import { URL } from "../App"
 //import toast from 'react-hot-toast'
 import { Link, useParams } from 'react-router-dom'
-import { Group } from '@mui/icons-material'
+import { Group, UpdateDisabledRounded } from '@mui/icons-material'
 import { Button, MenuItem, TextField } from '@mui/material'
 import { Form } from 'react-bootstrap'
 
 
 export const EditUser = () => {
 
-    const [pojo, setPojo] = useState({username:'', role:"User",email:'',shop:''})
+    const [pojo, setPojo] = useState({ username: '', role: "User", email: '', shop: '' })
 
     const { id } = useParams()
 
@@ -18,7 +18,7 @@ export const EditUser = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-         Axios.get(`/${URL}/edit-user/${id}`, {id }).then(setPojo())
+        Axios.get(`/${URL}/edit-user/${id}`, { id }).then(setPojo())
     }
 
     return (
@@ -49,6 +49,13 @@ export const EditUser = () => {
                         </TextField>
                     </div>
                 </div>
+                <div className="my-3">
+                    <Link className='mt-5' to={`/user/${id}`}>
+                        <Button color="warning" startIcon={<UpdateDisabledRounded />} >
+                            BACK
+                        </Button>
+                    </Link>
+                </div>
 
                 <div className="my-3">
                     <Button type="submit" fullWidth variant="contained" color="warning" >Submit</Button>
@@ -57,11 +64,9 @@ export const EditUser = () => {
             </Form >
 
             <Link className='mt-5' to={'/all-users'}>
-
                 <Button color="warning" startIcon={<Group />} >
                     ALL USERS
                 </Button>
-
             </Link>
 
         </>

@@ -10,7 +10,6 @@ export const TaskCount = () => {
             <Typography>MTD COUNT</Typography>
             <Typography>YTD COUNT</Typography>
         </Card>
-
     </>
   )
 }

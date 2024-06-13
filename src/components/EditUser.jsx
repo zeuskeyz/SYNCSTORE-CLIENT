@@ -3,9 +3,10 @@ import Axios from 'axios'
 import { URL } from "../App"
 //import toast from 'react-hot-toast'
 import { Link, useParams } from 'react-router-dom'
-import { Group, UpdateDisabledRounded } from '@mui/icons-material'
+import { Group } from '@mui/icons-material'
 import { Button, MenuItem, TextField } from '@mui/material'
 import { Form } from 'react-bootstrap'
+import { BackToUser } from './BackToUser'
 
 
 export const EditUser = () => {
@@ -48,13 +49,6 @@ export const EditUser = () => {
                             <MenuItem value="User">User</MenuItem>
                         </TextField>
                     </div>
-                </div>
-                <div className="my-3">
-                    <Link className='mt-5' to={`/user/${id}`}>
-                        <Button color="warning" startIcon={<UpdateDisabledRounded />} >
-                            BACK
-                        </Button>
-                    </Link>
                 </div>
 
                 <div className="my-3">

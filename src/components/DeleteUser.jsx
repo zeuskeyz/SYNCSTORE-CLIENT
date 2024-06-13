@@ -15,7 +15,7 @@ export const DeleteUser = () => {
 
     return (
         <>
-            <Button endIcon={<DeleteForeverRounded />} className="text-uppercase fs-6" onClick={handleDelete}>
+            <Button color='warning' endIcon={<DeleteForeverRounded />} className="text-uppercase fs-6" onClick={handleDelete}>
                 DELETE USER
             </Button>
 

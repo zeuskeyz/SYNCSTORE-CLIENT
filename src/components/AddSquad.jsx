@@ -1,10 +1,11 @@
 import { Send, Workspaces } from "@mui/icons-material"
-import { Button, Chip, Paper, TextField, Typography } from "@mui/material"
+import { Button, Chip, TextField, Typography } from "@mui/material"
 import { useState } from "react"
 import { Form } from "react-bootstrap"
 import toast from "react-hot-toast"
 import Axios from 'axios'
 import { Link } from "react-router-dom"
+import { URL } from "../App"
 
 export const AddSquad = () => {
     const defaults = { name: '', shop: '' }
@@ -15,23 +16,25 @@ export const AddSquad = () => {
     const handleSubmit = event => {
 
         event.preventDefault()
-        Axios.post(`${URL}/add-add`, pojo).then(setPojo(defaults)).then(({ data }) => toast.success(data.note))
+        console.log(pojo)
+        Axios.post(`${URL}/new-squad`, pojo).then(setPojo(defaults)).then(({ data }) => toast.success(data.note))
 
     }
 
     return (
         <>
-            <Paper>
-                <Form onSubmit={handleSubmit}>
+            <div className="p-5">
+                <Form onSubmit={handleSubmit} className="mx-5">
                     <div className="">
                         <Chip label={<Typography>CREATE SQUAD</Typography>} color="warning" size='medium' />
                     </div>
 
-                    <div>
-                        <TextField required className="form-control" type="text" name="name" label="Squad Name" variant="filled" color='warning' value={pojo.name} onChange={handleInput} />
-                        <TextField required className="form-control" type="text" name="shop" label="Squad Branch" variant="filled" color='warning' value={pojo.shop} onChange={handleInput} />
+                    <div className="m-3">
+                        <TextField required className="form-control mb-3" type="text" name="name" label="Squad Name" variant="filled" color='warning' value={pojo.name} onChange={handleInput} />
+                        <TextField required className="form-control mb-3" type="text" name="shop" label="Squad Branch" variant="filled" color='warning' value={pojo.shop} onChange={handleInput} />
                     </div>
-                    <div>
+
+                    <div className="m-3">
                         <Button type="submit" fullWidth variant="contained" color="warning" endIcon={<Send />}>SUBMIT</Button>
                     </div>
 
@@ -44,7 +47,7 @@ export const AddSquad = () => {
                     </Button>
                 </Link>
 
-            </Paper>
+            </div>
 
         </>
     )

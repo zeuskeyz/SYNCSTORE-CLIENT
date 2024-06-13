@@ -7,9 +7,9 @@ export const SquadsCarousel = () => {
                 <Typography className="mb-2 text-underline" variant="h5">SQUADS</Typography>
 
                 <div className="carousel-indicators mt-5">
-                    <button type="button" data-bs-target="#squad-display" data-bs-slide-to="0" className="bg-dark active"></button>
-                    <button type="button" data-bs-target="#squad-display" data-bs-slide-to="1" className="bg-dark"></button>
-                    <button type="button" data-bs-target="#squad-display" data-bs-slide-to="2" className="bg-dark"></button>
+                    <button type="button" data-bs-target="#squad-display" data-bs-slide-to="0" className="bg-warning active"></button>
+                    <button type="button" data-bs-target="#squad-display" data-bs-slide-to="1" className="bg-warning"></button>
+                    <button type="button" data-bs-target="#squad-display" data-bs-slide-to="2" className="bg-warning"></button>
                 </div>
                 <div className="carousel-inner mb-4">
                     <div className="carousel-item active my-1">

@@ -12,6 +12,8 @@ import { Users } from './pages/Users'
 import { UserEditPage } from './pages/UserEditPage'
 import { ManageUser } from './pages/ManageUser'
 import { Squads } from './pages/Squads'
+import { UserToSquad } from './pages/UserToSquad'
+import { NewSquad } from './pages/NewSquad'
 
 export const URL = 'http://localhost:3003'
 Axios.defaults.withCredentials = true
@@ -26,9 +28,12 @@ function App() {
 
         <Route path='/new-user' element={<SignUp />} />
         <Route path='/all-users' element={<Users />} />
-        <Route path='/user/:id/edit' element={<UserEditPage />} />
         <Route path='/user/:id' element={<ManageUser />} />
+        <Route path='/user/:id/edit' element={<UserEditPage />} />
+        <Route path='/user/:id/add-squad' element={<UserToSquad />} />
 
+
+        <Route path='/new-squad/' element={<NewSquad />} />
         <Route path='/all-squads/' element={<Squads />} />
 
 

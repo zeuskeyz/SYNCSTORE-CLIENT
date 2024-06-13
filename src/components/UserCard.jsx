@@ -1,41 +1,40 @@
-import { ManageAccounts, PersonPinRounded, WorkHistoryRounded } from "@mui/icons-material"
-import { Button, Card, CardContent, Paper } from "@mui/material"
+import { EmailRounded, ManageAccounts, WorkHistoryRounded } from "@mui/icons-material"
+import { Button, Card, CardContent, Typography } from "@mui/material"
+import { useEffect, useState } from "react"
+import Axios from 'axios'
+import { URL } from "../App"
+import { useParams } from "react-router-dom"
 
 export const UserCard = () => {
+    const [account, changeAccount] = useState({})
+    const { id } = useParams()
+
+    useEffect(() => {
+        Axios.get(`${URL}/user/${id}`).then(res => changeAccount(res.data))
+    }, [id])
 
     return (
         <>
-            <div className="">
-                <Paper elevation={3} className="">
-                    <Card variant='' className="">
-                        <CardContent className="">
-                            <div><ManageAccounts className="fs-1" /></div>
-                            <div>
-                                <Button className="text-uppercase fs-1 display-3 my-0 py-0">
-                                    SHEZRON
-                                </Button>
-                            </div>
-                            <div>
-                                <Button startIcon={<WorkHistoryRounded />} className="text-lowercase fs-5">
-                                    shezron@email.com
-                                </Button>
-                            </div>
-                            <div>
-                                <Button startIcon={<PersonPinRounded />} className="text-uppercase fs-6 my-0">
-                                    SILAS HEZRON
-                                </Button>
-                            </div>
-                            <div>
-                                <Button startIcon={<WorkHistoryRounded />} className="text-uppercase fs-6">
-                                    ADMIN | MIGORI
-                                </Button>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </Paper>
-
-            </div>
-
+            <Card variant='' className="rounded-pill">
+                <CardContent className="">
+                    <div ><ManageAccounts className="fs-1" /></div>
+                    <div>
+                        <Button style={{ 'color': 'black' }} className="text-uppercase fs-1 display-3 my-0 py-0">
+                            <Typography variant="h2">{account.username}</Typography>
+                        </Button>
+                    </div>
+                    <div>
+                        <Button style={{ 'color': 'black' }} startIcon={<EmailRounded />} className="text-lowercase fs-5">
+                            <Typography>{account.email}</Typography>
+                        </Button>
+                    </div>
+                    <div>
+                        <Button style={{ 'color': 'black' }} startIcon={<WorkHistoryRounded />} className="text-uppercase fs-6">
+                            <Typography>{account.role} | {account.shop}</Typography>
+                        </Button>
+                    </div>
+                </CardContent>
+            </Card>
         </>
     )
 }

@@ -6,7 +6,6 @@ import { Link, useParams } from 'react-router-dom'
 import { Group } from '@mui/icons-material'
 import { Button, MenuItem, TextField } from '@mui/material'
 import { Form } from 'react-bootstrap'
-import { BackToUser } from './BackToUser'
 
 
 export const EditUser = () => {

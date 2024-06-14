@@ -1,30 +1,41 @@
-import { Typography } from "@mui/material"
+import { Paper, Typography } from "@mui/material"
+import Axios from 'axios'
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { URL } from "../App"
 
 export const SquadsCarousel = () => {
+
+    const [account, setAccount] = useState({})
+    const { id } = useParams()
+
+    useEffect(() => {
+        Axios.get(`${URL}/user/${id}`).then(res => setAccount(res.data))
+    }, [account, id])
+    let { squads } = account
+    let indicators = squads?.map((squad, index) => <button key={index} type="button" data-bs-target="#squad-display" data-bs-slide-to={index} className={`bg-dark mt-5 ${!index && 'active'}`} />)
+    let innerCarousel = squads?.map((squad, index) =>
+
+        <div className="carousel-inner" key={index} >
+
+            <div className={`carousel-item ${!index && `active`}`} >
+                <h1>{squad.toUpperCase()}</h1>
+                <Typography>Group Description Goes Here</Typography>
+            </div>
+        </div>
+    )
+
     return (
         <>
-            <div elevation={2} id="squad-display" className="carousel slide p-3" data-bs-ride="carousel">
-                <Typography className="mb-2 text-underline" variant="h5">SQUADS</Typography>
 
-                <div className="carousel-indicators mt-5">
-                    <button type="button" data-bs-target="#squad-display" data-bs-slide-to="0" className="bg-warning active"></button>
-                    <button type="button" data-bs-target="#squad-display" data-bs-slide-to="1" className="bg-warning"></button>
-                    <button type="button" data-bs-target="#squad-display" data-bs-slide-to="2" className="bg-warning"></button>
+            <Paper elevation={2} id="squad-display" className="carousel slide carousel-fade p-3 h-100" data-bs-ride="carousel">
+                <Typography className="mb-1" variant="h6">SQUADS</Typography>
+
+                <div className="carousel-indicators mt-5 pt-5" >
+                    {indicators}
                 </div>
-                <div className="carousel-inner mb-4">
-                    <div className="carousel-item active my-1">
-                        <h1>Team Migori</h1>
-                        <p>Group Description Goes Here</p>
-                    </div>
-                    <div className="carousel-item my-1">
-                        <h1>Back Office Team</h1>
-                        <p>Group Description Goes Here</p>
-                    </div>
-                    <div className="carousel-item my-1">
-                        <h1>Stock Controllers</h1>
-                        <p>Group Description Goes Here</p>
-                    </div>
-                </div>
+
+                {innerCarousel}
 
                 <button className="carousel-control-prev" type="button" data-bs-target="#squad-display" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon "></span>
@@ -32,7 +43,7 @@ export const SquadsCarousel = () => {
                 <button className="carousel-control-next" type="button" data-bs-target="#squad-display" data-bs-slide="next">
                     <span className="carousel-control-next-icon"></span>
                 </button>
-            </div>
+            </Paper>
 
         </>
     )

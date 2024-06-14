@@ -15,7 +15,7 @@ export const UserToSquad = () => {
                 <Navigation />
                 <div className="text-center ms-5 px-5">
                     <div className='container my-3 px-5 text-end'> <Header addGroup={addGroup} goBack={goBack} /> </div>
-                    <div className='container my-3 px-5'> <SquadsToAdd /> </div>
+                    <div className='container my-5 p-5'> <SquadsToAdd /> </div>
                 </div>
             </div>
         </>

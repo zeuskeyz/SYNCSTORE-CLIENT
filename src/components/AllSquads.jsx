@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react'
 import { URL } from '../App'
 import Axios from 'axios'
 import { EmptyTasks } from "./EmptyTasks"
-import { Chip } from '@mui/material'
+import { Button } from '@mui/material'
+import { CancelRounded } from '@mui/icons-material'
 
 export const AllSquads = () => {
     const navigate = useNavigate()
@@ -19,7 +20,9 @@ export const AllSquads = () => {
     }, [groups])
 
     let results = groups.map(group => (
-        <Chip className='p-3 m-2' key={group._id} id={group._id} label={group.name} variant="outlined" onDelete={handleDelete} />
+        <Button className='m-2 rounded-pill' key={group._id} id={group._id} variant="outlined" onClick={handleDelete} endIcon={<CancelRounded/>}>
+            {group.name}
+        </Button>
     ))
 
     return (

@@ -1,5 +1,5 @@
 import { EmailRounded, ManageAccounts, WorkHistoryRounded } from "@mui/icons-material"
-import { Button, Card, CardContent, Typography } from "@mui/material"
+import { Button, Card, CardContent, Paper, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import Axios from 'axios'
 import { URL } from "../App"
@@ -15,11 +15,14 @@ export const UserCard = () => {
 
     return (
         <>
+            <Paper elevation={2}>
+
+            
             <Card variant='' className="rounded-pill">
                 <CardContent className="">
                     <div ><ManageAccounts className="fs-1" /></div>
                     <div>
-                        <Button style={{ 'color': 'black' }} className="text-uppercase fs-1 display-3 my-0 py-0">
+                        <Button style={{ 'color': 'black' }} className="text-uppercase my-0 py-0">
                             <Typography variant="h2">{account.username}</Typography>
                         </Button>
                     </div>
@@ -35,6 +38,7 @@ export const UserCard = () => {
                     </div>
                 </CardContent>
             </Card>
+            </Paper>
         </>
     )
 }

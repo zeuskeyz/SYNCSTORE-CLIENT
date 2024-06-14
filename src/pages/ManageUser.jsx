@@ -5,12 +5,13 @@ import { AppRegistrationRounded, CancelRounded, GroupAddRounded } from '@mui/ico
 import { TaskCount } from '../components/TaskCount'
 import { SquadsCarousel } from '../components/SquadsCarousel'
 import { DeleteUser } from '../components/DeleteUser'
+import { Paper } from '@mui/material'
 
 
 export const ManageUser = () => {
-    const goBack = { link: `/all-users`, name: 'cancel', icon: <CancelRounded/> }
+    const goBack = { link: `/all-users`, name: 'cancel', icon: <CancelRounded /> }
     const edit = { link: 'edit', name: 'Edit User', icon: <AppRegistrationRounded /> }
-    const addSquad = { link: 'add-squad', name: 'Add Squad', icon: <GroupAddRounded/> }
+    const addSquad = { link: 'add-squad', name: 'Add Squad', icon: <GroupAddRounded /> }
 
     return (
         <div className="container">
@@ -22,29 +23,31 @@ export const ManageUser = () => {
             <div className="container ps-5 ms-5">
 
                 <div className="container ps-5 ms-3">
-                    <Header edit={edit} addSquad={addSquad} goBack={goBack}/>
+                    <Header edit={edit} addSquad={addSquad} goBack={goBack} />
                 </div>
 
                 <div className="container ps-5 m-3">
-                    <div className="row">
+                    <div className="row g-1">
 
+                        <div className='col-6'>
+                            <UserCard />
+                        </div>
                         <div className="col-6">
-                            <div>
-                                <UserCard />
-                                <SquadsCarousel />
-                                <div className="mt-2">
-                                    <DeleteUser/>
-                                </div>
-                            </div>
+                            <SquadsCarousel />
                         </div>
 
-                      <div className="col-6 row g-1">
-                          <TaskCount />
-                          <TaskCount />
-                          <TaskCount />
-                      </div>
+                    </div>
+
+                    <div className="row g-1 py-2">
+                        <div className='col-4'><TaskCount /></div>
+                        <div className='col-4'><TaskCount /></div>
+                        <div className='col-4'><TaskCount /></div>
 
                     </div>
+
+                    <Paper className="mt-2 col-12">
+                        <DeleteUser />
+                    </Paper>
 
                 </div>
             </div>

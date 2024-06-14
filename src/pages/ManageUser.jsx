@@ -38,14 +38,11 @@ export const ManageUser = () => {
 
                     </div>
 
-                    <div className="row g-1 py-2">
-                        <div className='col-4'><TaskCount /></div>
-                        <div className='col-4'><TaskCount /></div>
-                        <div className='col-4'><TaskCount /></div>
-
+                    <div className="row g-2 py-1">
+                        <TaskCount />
                     </div>
 
-                    <Paper className="mt-2 col-12">
+                    <Paper className="col-12">
                         <DeleteUser />
                     </Paper>
 

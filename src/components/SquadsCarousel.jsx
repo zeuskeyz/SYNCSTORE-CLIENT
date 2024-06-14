@@ -10,8 +10,11 @@ export const SquadsCarousel = () => {
     const { id } = useParams()
 
     useEffect(() => {
+
         Axios.get(`${URL}/user/${id}`).then(res => setAccount(res.data))
+        
     }, [account, id])
+
     let { squads } = account
     let indicators = squads?.map((squad, index) => <button key={index} type="button" data-bs-target="#squad-display" data-bs-slide-to={index} className={`bg-dark mt-5 ${!index && 'active'}`} />)
     let innerCarousel = squads?.map((squad, index) =>
@@ -22,6 +25,7 @@ export const SquadsCarousel = () => {
                 <h1>{squad.toUpperCase()}</h1>
                 <Typography>Group Description Goes Here</Typography>
             </div>
+
         </div>
     )
 

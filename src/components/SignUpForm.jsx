@@ -1,7 +1,7 @@
 //import Axios from 'axios'
 import { useState } from 'react'
 import { Form } from 'react-bootstrap'
-import { Button, MenuItem, TextField } from '@mui/material'
+import { Button, Chip, MenuItem, TextField } from '@mui/material'
 import Axios from 'axios'
 import { URL } from "../App"
 import toast from 'react-hot-toast'
@@ -26,10 +26,10 @@ export const SignUpForm = () => {
 
     return (
         <>
-            <Form className='container' onSubmit={handleSubmit}>
+            <Form className='container px-5 mx-5' onSubmit={handleSubmit}>
 
-                <div className='mb-5 pb-4'>
-                    <legend>CREATE NEW USER</legend>
+                <div className='mb-5'>
+                    <Chip color="warning" label='CREATE NEW USER' Chip />
                 </div>
 
                 <div className='row my-3'>
@@ -68,9 +68,9 @@ export const SignUpForm = () => {
 
             </Form >
 
-            <Link className='mt-5'  to={'/all-users'}>
+            <Link className='mt-5 mx-5' to={'/all-users'}>
 
-                <Button color="warning" startIcon={<Group/>} >
+                <Button color="warning" startIcon={<Group />} >
                     ALL USERS
                 </Button>
             </Link>

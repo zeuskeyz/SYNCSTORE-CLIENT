@@ -2,7 +2,7 @@ import { UserCard } from '../components/UserCard'
 import { Navigation } from '../components/Navigation'
 import { Header } from '../components/Header'
 import { AppRegistrationRounded, CancelRounded, GroupAddRounded } from '@mui/icons-material'
-import { TaskCount } from '../components/TaskCount'
+import { UserSquads } from '../components/UserSquads'
 import { SquadsCarousel } from '../components/SquadsCarousel'
 import { DeleteUser } from '../components/DeleteUser'
 import { Paper } from '@mui/material'
@@ -39,7 +39,7 @@ export const ManageUser = () => {
                     </div>
 
                     <div className="row g-2 py-1">
-                        <TaskCount />
+                        <UserSquads />
                     </div>
 
                     <Paper className="col-12">

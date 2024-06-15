@@ -7,7 +7,7 @@ import { Paginate } from './Paginate'
 import toast from 'react-hot-toast'
 import { URL } from '../App'
 
-export const TaskCount = () => {
+export const UserSquads = () => {
   const { id } = useParams()
   const [groups, setGroups] = useState([])
   const [pageNum, setPageNum] = useState(1)
@@ -17,18 +17,18 @@ export const TaskCount = () => {
   const firstIndex = lastIndex - postsPerPage
   const totalPages = Math.ceil(groups.length / postsPerPage)
 
-  const handleDelete = (event) => { Axios.delete(`${URL}/user/${id}/delete-squad`, { squad: event.target.name }).then(res => toast(res.data)) }
+  const handleDelete = (event) => { Axios.delete(`${URL}/user/${id}/delete-squad`, {squad:event.target.name}).then(res => toast(res.data))}
 
   useEffect(() => { Axios.get(`${URL}/user/${id}`).then(res => setGroups(res.data.squads)) }, [groups, id])
 
-  let result = groups?.slice(firstIndex, lastIndex).map(group =>
+  let result = groups?.slice(firstIndex, lastIndex).map((group, index) =>
 
-    <Card className={`col-${(12 / groups?.slice(firstIndex, lastIndex).length)} border-0 p-2`} key={group._id} >
+    <Card className={`col-${(12 / groups?.slice(firstIndex, lastIndex).length)} border-0 p-2`} key={index} >
       <div className="border shadow">
         <CardContent className='d-flex flex-column justify-content-evenly'>
           <Typography>TEAM</Typography>
           <Typography className='text-uppercase fw-bold d-block my-auto' variant='h5'>{group}</Typography>
-          <Button color='warning' className='' name={group.name} onClick={handleDelete}>
+          <Button disabled={group ==='shop'} color='warning' className='' name={group} onClick={handleDelete}>
             REMOVE USER
           </Button>
         </CardContent>
@@ -38,16 +38,12 @@ export const TaskCount = () => {
 
   return (
     <>
-      <div>
-        <div className="container g-1">
-          <div className="row px-1">
+        <div className="row g-1">
             {groups.length ? result : <EmptyTasks />}
-          </div>
         </div>
         <Paper className='my-1 col-12'>
           <Paginate pageNum={pageNum} setPageNum={setPageNum} setPostsPerPage={setPostsPerPage} totalPages={totalPages} />
         </Paper>
-      </div>
         
     </>
   )

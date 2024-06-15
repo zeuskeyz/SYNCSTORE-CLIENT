@@ -14,6 +14,7 @@ import { ManageUser } from './pages/ManageUser'
 import { Squads } from './pages/Squads'
 import { UserToSquad } from './pages/UserToSquad'
 import { NewSquad } from './pages/NewSquad'
+import { NewTask } from './pages/NewTask'
 
 export const URL = 'http://localhost:3003'
 Axios.defaults.withCredentials = true
@@ -39,6 +40,7 @@ function App() {
 
 
 
+        <Route path='/new-ask' element={<NewTask />} />
         <Route path='/open-tasks' element={<OpenTasks />} />
 
 

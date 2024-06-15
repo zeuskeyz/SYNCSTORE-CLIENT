@@ -37,12 +37,12 @@ export const NewTaskForm = () => {
 
                 <div className='row my-3'>
                     <div className='col-6'>
-                        <TextField required className="form-control text-start" select type="text" name="shop" label="Shop Code" variant="filled" color='warning' value={maker.shop} onChange={handleInput}>
+                        <TextField required className="form-control text-start" select type="text" name="shop" label="Shop Code" variant="filled" color='warning' value={task.shop} onChange={handleInput}>
                             <MenuItem className="" value={maker.shop}> {maker.shop} </MenuItem>
                         </TextField>
                     </div>
                     <div className="col-6">
-                        <TextField required className='form-control text-start' select type="text" name="creator" label="Created By" variant="filled" color='warning' value={maker.username} onChange={handleInput} >
+                        <TextField required className='form-control text-start' select type="text" name="creator" label="Created By" variant="filled" color='warning' value={task.creator} onChange={handleInput} >
                             <MenuItem className="text-uppercase" value={maker.username}>{maker.username}</MenuItem>
                         </TextField>
                     </div>

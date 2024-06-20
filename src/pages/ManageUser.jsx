@@ -1,7 +1,7 @@
 import { UserCard } from '../components/UserCard'
 import { Navigation } from '../components/Navigation'
 import { Header } from '../components/Header'
-import { AppRegistrationRounded, CancelRounded, GroupAddRounded } from '@mui/icons-material'
+import { AppRegistrationRounded, CancelRounded, GroupAddRounded, HomeRounded } from '@mui/icons-material'
 import { UserSquads } from '../components/UserSquads'
 import { SquadsCarousel } from '../components/SquadsCarousel'
 import { DeleteUser } from '../components/DeleteUser'
@@ -9,9 +9,11 @@ import { Paper } from '@mui/material'
 
 
 export const ManageUser = () => {
-    const goBack = { link: `/all-users`, name: 'cancel', icon: <CancelRounded /> }
+    const home = { link: `/homepage`, name: 'Home', icon: <HomeRounded /> }
     const edit = { link: 'edit', name: 'Edit User', icon: <AppRegistrationRounded /> }
     const addSquad = { link: 'add-squad', name: 'Add Squad', icon: <GroupAddRounded /> }
+    const goBack = { link: `/all-users`, name: 'cancel', icon: <CancelRounded /> }
+
 
     return (
         <div className="container">
@@ -23,7 +25,7 @@ export const ManageUser = () => {
             <div className="container ps-5 ms-5">
 
                 <div className="container ps-5 ms-3">
-                    <Header edit={edit} addSquad={addSquad} goBack={goBack} />
+                    <Header edit={edit} addSquad={addSquad} goBack={goBack} home={home} />
                 </div>
 
                 <div className="container ps-5 m-3">

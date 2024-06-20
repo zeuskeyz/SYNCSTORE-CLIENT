@@ -4,7 +4,7 @@ import { NewTaskForm } from "../components/NewTaskForm"
 
 export const NewTask = () => {
     return (
-        <div>
+        <>
             <div className="container">
 
                 <div className='container mt-3'>
@@ -24,6 +24,6 @@ export const NewTask = () => {
 
             </div >
 
-        </div>
+        </>
     )
 }

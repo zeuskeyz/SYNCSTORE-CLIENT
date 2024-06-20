@@ -1,10 +1,11 @@
-import { CancelRounded } from "@mui/icons-material"
+import { CancelRounded, HomeRounded } from "@mui/icons-material"
 import { Navigation } from "../components/Navigation"
 import { Header } from "../components/Header"
 import { AddSquad } from "../components/AddSquad"
 
 export const NewSquad = () => {
-    const goBack = { link: `/all-users`, name: 'cancel', icon: <CancelRounded/> }
+    const home = { link: `/homepage`, name: 'Home', icon: <HomeRounded /> }
+    const goBack = { link: `/all-squads`, name: 'cancel', icon: <CancelRounded/> }
 
     return (
         <>
@@ -17,7 +18,7 @@ export const NewSquad = () => {
                 <div className="container ps-5 ms-5">
 
                     <div className="container ps-5 ms-3">
-                        <Header goBack={goBack} />
+                        <Header  home={home} goBack={goBack} />
                     </div>
 
                     <div className="container ps-5 m-3">

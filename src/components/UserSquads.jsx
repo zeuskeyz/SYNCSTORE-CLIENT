@@ -34,6 +34,7 @@ export const UserSquads = () => {
         </CardContent>
       </div>
     </Card>
+    
   )
 
   return (

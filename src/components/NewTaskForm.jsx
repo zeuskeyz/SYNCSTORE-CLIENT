@@ -18,9 +18,9 @@ export const NewTaskForm = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        console.log(task)
-        Axios.post(`${URL}/new-ask`, task).then(setTask(defaults)).then(({ data }) => toast.success(data.note))
+        Axios.post(`${URL}/new-ask`, task).then(setTask(defaults)).then(({ data }) => toast.success(data))
     }
+    
     return (
         <>
             <Form className='container mx-5 px-5' onSubmit={handleSubmit}>
@@ -51,7 +51,7 @@ export const NewTaskForm = () => {
 
                 <div className='row my-3'>
                     <div className="col-6">
-                        <TextField required className="form-control text-start" select type="text" name="assignee" label="Assign To" variant="filled" defaultValue="" color='warning' value={task.assignee} onChange={handleInput}>
+                        <TextField required className="form-control text-start" select type="text" name="assignee" label="Assign To" variant="filled" defaultValue="" color='warning' value={task.assignee} onChange={handleInput} >
                             <MenuItem value="All">Everybody</MenuItem>
                             <MenuItem value="Any">Anybody</MenuItem>
                         </TextField>

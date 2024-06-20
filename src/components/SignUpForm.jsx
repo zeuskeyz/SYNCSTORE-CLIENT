@@ -66,14 +66,16 @@ export const SignUpForm = () => {
                     <Button type="submit" fullWidth variant="contained" color="warning" >Submit</Button>
                 </div>
 
+                <Link className='my-5 mx-5' to={'/all-users'}>
+
+                    <Button color="warning" startIcon={<Group />} >
+                        ALL USERS
+                    </Button>
+                </Link>
+
             </Form >
 
-            <Link className='mt-5 mx-5' to={'/all-users'}>
 
-                <Button color="warning" startIcon={<Group />} >
-                    ALL USERS
-                </Button>
-            </Link>
 
         </>
     )

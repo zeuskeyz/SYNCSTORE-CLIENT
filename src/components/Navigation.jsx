@@ -1,20 +1,25 @@
 import { LogoutRounded } from "@mui/icons-material"
 import { Button, Divider, Drawer, List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material"
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { UserContext } from "../contexts/UserContextProvider"
 
-//const navlinks = ['New User', 'Create Task', 'My Tasks', 'My Asks']
-const navLinks = [{ 'all-users': 'Team' }, { 'new-ask': 'Create Task' }, { 'open-tasks': 'My Assignements' }, { 'open-asks': 'My Requests' }, { 'all-squads': 'Squads' }]
+const adminLinks = [{ 'all-users': 'Team' }, { 'new-ask': 'Create Task' }, { 'open-tasks': 'Team Tasks' }, { 'open-asks': 'My Requests' }, { 'all-squads': 'Squads' }]
+const userLinks = [{ 'homepage': 'My Profile' }, { 'new-ask': 'Create Task' }, { 'open-tasks': 'Team Tasks' }, { 'open-asks': 'My Requests' }]
 
 export const Navigation = () => {
 
-    const DrawerList = (
+    const user = useContext(UserContext)
+    let menuList = user.role === 'admin' ? adminLinks : userLinks
 
+    const DrawerList = (
+        
         <>
             <div className="my-3 text-center"> <Typography className="" >SYNCSTORE</Typography></div>
             <Divider />
             <List className="my-3 ms-3">
 
-                {navLinks.map((nav, index) => (
+                {menuList.map((nav, index) => (
                     <ListItem key={index}>
                         <Link className="text-decoration-none text-secondary" color='warning' to={`/${Object.keys(nav)[0]}`}>
                             <ListItemButton>

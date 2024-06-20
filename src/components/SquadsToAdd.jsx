@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { URL } from '../App'
 import { useParams } from 'react-router-dom'
 import { EmptyTasks } from './EmptyTasks'
-import { Button, Card, CardContent, Chip, Typography } from '@mui/material'
+import { Button, CardContent, Chip, Typography } from '@mui/material'
 import toast from 'react-hot-toast'
 import { Paginate } from './Paginate'
 
@@ -22,38 +22,33 @@ export const SquadsToAdd = () => {
         Axios.get(`${URL}/user/${id}/add-squad`).then(res => setGroups(res.data))
     }, [id, groups])
 
-    const handleAdd = (event) => {Axios.post(`${URL}/user/${id}/add-squad`, { squad: event.target.name }).then(res => toast(res.data))}
+    const handleAdd = (event) => { Axios.post(`${URL}/user/${id}/add-squad`, { squad: event.target.name }).then(res => toast(res.data)) }
+    
+    const styles = { boxShadow: '15px -15px 15px rgba(0,0,0,0.1) , 15px 15px 15px rgba(255,255,255,0.2)' }
 
     let result = groups?.slice(firstIndex, lastIndex).map(group =>
 
-        <Card className="col-4 border border-0 p-2" key={group._id} >
-            <div className="border shadow">
-                <CardContent className='d-flex flex-column justify-content-evenly'>
-                    <Typography>TEAM</Typography>
-                    <Typography className='text-uppercase fw-bold d-block my-auto' variant='h5'>{group.name}</Typography>
-                    <Button color='warning' className='' name={group.name} onClick={handleAdd}>
-                        ADD USER
-                    </Button>
-                </CardContent>
-
-            </div>
-        </Card>
+        <div style={styles} className='col-4 p-4 mb-2 flex-column justify-context-evenly' key={group._id}>
+            <CardContent color='warning'>
+                <Typography className='text-uppercase fw-bold d-block' variant='h5'>{group.name}</Typography>
+                <Button color='warning' className='mt-3' name={group.name} id={group._id} onClick={handleAdd}>
+                    ADD MEMBER
+                </Button>
+            </CardContent>
+        </div>
     )
 
     return (
         <>
-            <div>
-                <Chip color='warning' className="mb-3" label='CLICK ON THE SQUAD TO ADD USER' />
-                <div className="container">
-                    <div className="row g-2">
-                        {groups.length ? result : <EmptyTasks />}
-                    </div>
+                <Chip color='warning' className="mb-3" label='SHOP SQUADS' />
+
+                <div className="row p-2">
+                    {groups.length ? result : <EmptyTasks />}
                 </div>
-                <div className="my-3">
+                <div className="mb-3">
                     <Paginate pageNum={pageNum} setPageNum={setPageNum} setPostsPerPage={setPostsPerPage} totalPages={totalPages} />
                 </div>
 
-            </div>
         </>
     )
 }

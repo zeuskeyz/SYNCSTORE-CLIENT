@@ -17,6 +17,7 @@ import { NewSquad } from './pages/NewSquad'
 import { NewTask } from './pages/NewTask'
 import { PickedTasks } from './pages/PickedTasks'
 import { ClosingTasks } from './pages/ClosingTasks'
+import { OpenAsks } from './pages/OpenAsks'
 
 export const URL = 'http://localhost:3003'
 Axios.defaults.withCredentials = true
@@ -40,6 +41,7 @@ function App() {
 
         <Route path='/new-ask' element={<NewTask />} />
         <Route path='/open-tasks' element={<OpenTasks />} />
+        <Route path='/open-asks' element={<OpenAsks />} />
         <Route path='/picked-tasks' element={<PickedTasks />} />
         <Route path='/close-task/:id' element={<ClosingTasks />} />
 
